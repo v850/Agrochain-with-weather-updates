@@ -289,4 +289,20 @@ color:white;
 	box-shadow: 0 5px #666;
 	transform: translateY(4px);
   }
- 
+  /* table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px;
+}
+
+table {
+    border-spacing: 5px;
+} */
+#previousOrders{
+	background-color: #f0f5f5;
+	margin: 0.5em 0.5em;
+	width: 50%;
+}

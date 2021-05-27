@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-auth.js"></script>
+        
+       <link rel="stylesheet" href="css/loggedin.css" ></head>
+    </head>
+    <body>
+    
+        <h1>You are logged in. </h1>
+       
+        
+        <button id="logout" class="button1">Logout</button>
+        <div class="row">
+            <div class="column" style="background-color:rgba(36, 231, 10, 0.438); font-family: Arial, Helvetica, sans-serif; ">
+              <h2>FARMER</h2>
+              <p> 
+              
+              VISIT FARMER PAGE AND DO REGISTRATION OF YOUR CROP</p>
+            
+              <button  class="button" id="farmer"> Farmer</button>
+            </div>
+            <div class="column"style="background-color:rgba(36, 231, 10, 0.438); font-family: Arial, Helvetica, sans-serif;">
+              <h2>CUSTOMER</h2>
+              <p>SEE THE DETAILS OF CROP AND FUND AMOUNT <p>
+              <button class="button" id="Customer">Customer</button>
+            </div>
+          </div>
+          
+         
+    </body>
+    <script src="./javascripts/loggedIn.js"></script>
+    <script>
+        document.getElementById("farmer").addEventListener('click', function(e) {
+ window.location.href="farmer.html";
+});
+document.getElementById("Customer").addEventListener('click', function(e) {
+ window.location.href="customer.html";
+});
+    </script>
+</html>

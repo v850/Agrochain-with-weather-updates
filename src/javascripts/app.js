@@ -179,11 +179,14 @@ function fund(){
 		}, 8000);
 }
 
+
+var lotNo;
 function get(){
 
 var metaget = StructStorage.deployed();
 
 var fid = document.getElementById("fid1").value;
+
 
 setStatus("Initiating transaction... (please wait)");
 
@@ -227,7 +230,7 @@ var metaset = StructStorage.deployed();
 
 var lotno = document.getElementById("lotno").value;
 var grade = document.getElementById("grade").value;
-var mrp = document.getElementById("mrp").value);
+var mrp = document.getElementById("mrp").value;
 var testdate = document.getElementById("testdate").value;
 var expdate = document.getElementById("expdate").value;
 
@@ -253,9 +256,10 @@ metaset.quality( lotno,grade,mrp,testdate,expdate, {from: account,gas:400000}).t
     setStatus("Error setting value; see log.");
   });
 
- 
+ setdata();
   
 };
+
 
 function cgetQ(){
 

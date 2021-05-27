@@ -43817,7 +43817,7 @@ $("#finance-btn").click(function() {
 
 var accounts;
 var account;
-var conaddress = "0x65d085845E08f0D5e6B878Bf022d6ed56B225c43";
+var conaddress = "0xF809bc20c0516791AB43e7dBd4788ecD49aE3Ed2";
 function setStatus(message) {
   var status = document.getElementById("status");
   status.innerHTML = message;
@@ -43915,13 +43915,14 @@ function fund(){
 						  
 		}, 8000);
 }
-
+// let farmerid;
+// let lotNo;
 function get(){
 
 var metaget = StructStorage.at(conaddress);
 
 var fid = document.getElementById("fid1").value;
-
+// farmerid=fid;
 setStatus("Initiating transaction... (please wait)");
 
 metaget.getproduce.call( fid, {from: account}).then(function(value) {
@@ -43967,7 +43968,7 @@ var grade = document.getElementById("grade").value;
 var mrp = parseInt(document.getElementById("mrp").value);
 var testdate = document.getElementById("testdate").value;
 var expdate = document.getElementById("expdate").value;
-
+lotNo=lotno;
 
 setStatus("Initiating transaction... (please wait)");
 
@@ -43990,9 +43991,43 @@ metaset.quality( lotno,grade,mrp,testdate,expdate, {from: account,gas:400000}).t
     setStatus("Error setting value; see log.");
   });
 
- 
+//  setdata();
   
 };
+
+// function setdata()
+// {
+//   var firebaseConfig = {
+//     apiKey: "AIzaSyAPYa5Xs8Cg8lit3X_vpILLpIJrbd16_bk",
+//     authDomain: "sms-api-7ccf9.firebaseapp.com",
+//     databaseURL: "https://sms-api-7ccf9-default-rtdb.asia-southeast1.firebasedatabase.app",
+//     projectId: "sms-api-7ccf9",
+//     storageBucket: "sms-api-7ccf9.appspot.com",
+//     messagingSenderId: "118746606408",
+//     appId: "1:118746606408:web:054dbabfdd0343d4eda17d",
+//     measurementId: "G-CYPHQ7SM1Q"
+//   };
+//   // Initialize Firebase
+// firebase.initializeApp(firebaseConfig);
+
+// // Start App
+// const db = firebase.firestore();
+
+// db.collection("farmer")
+// .doc()
+// .set({
+//   fid: farmerid,
+//   lotno:lotNo
+// })
+// .then(function() {
+//   errorAlert("Post Saved", "success");
+// })
+// .catch(function(error) {
+//   errorAlert(`$error`, "danger");
+// });
+
+// }
+
 
 function cgetQ(){
 

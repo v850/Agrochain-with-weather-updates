@@ -1,0 +1,187 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Agricultural Blockchain App</title>
+   <link href="./app.css" rel='stylesheet' type='text/css'>
+   <!-- <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+  
+   <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase.js"></script> -->
+  <script src="./app.js"></script>
+  <!-- <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase.js"></script> -->
+  <!-- <script src="./javascripts/farmerdata.js"></script> -->
+  <!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<!-- Bootstrap JS -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/8.6.2/firebase.js"></script>
+
+</head>
+<body>
+  <div><button id="back">Back</button><button type="button" class="btn-weather" onclick="getWeather()">Get Weather </button></div>
+  <h1>Agricultural Supply Chain Dapp</h1>
+  <h4>Public Id : <span class="white"><span id="SenderBalance"></span> </h4>
+  
+    <div class="btn-group" id="form-selector" align="center">
+		
+		<button type="button" class="btn1 btn-selector active" id="sign-up-btn">Farmer</button>
+		<button type="button" class="btn1 btn-selector" id="log-in-btn">View Report</button>
+		</div>
+	<div class="form" id="sign-up-form">
+		<h2 class="form-title">Enter Details</h2>
+		<input type="text" class="input-std" id="fid" placeholder="Farmer Id">
+		<input type="text" class="input-std" id="fname" placeholder="Farmers Name">
+		<input type="text" class="input-std" id="loc" placeholder="Location">
+		<input type="text" class="input-std" id="crop" placeholder="Crop Name">
+		<input type="text" class="input-std" id="contact" placeholder="Phone">
+		<input type="text" class="input-std" id="quantity" placeholder="Quantity in kg">
+		<input type="text" class="input-std" id="exprice" placeholder="Expected Price">
+		<button type="button" class="btn-submit" id="setvalue" onclick="set()">Submit Details!</button>
+	<span id="status"></span>
+	</div>
+	
+	 	
+  <div class="form" id="log-in-form">
+  <h2 class="form-title">View Report</h2>
+		
+		
+  <br>
+  <table>  
+  <!-- <tr><td><b><label class = "black">Farmer Id</label></td><td>:</td></b><td><span class="black" span id="getval1"></span></td></tr> -->
+  <input type="text" class="input-std" id="fid1" placeholder="Farmer Id">
+  <tr><td><b><label class = "black">Farmer Name</label></td><td>:</td></b><td><span class="black" span id="getval2"></span></td></tr>
+  <tr><td><b><label class = "black">Location</label></td><td>:</td></b><td><span class="black" span id="getval3"></span></td></tr>
+  <tr><td><b><label class = "black">Crop</label></td><td>:</td></b><td><span class="black" span id="getval4"></span></td></tr>
+  <tr><td><b><label class = "black">Phone</label></td><td>:</td></b><td><span class="black" span id="getval5"></span></td></tr>
+  <tr><td><b><label class = "black">Quantity</label></td><td>:</td></b><td><span class="black" span id="getval6"></span></td></tr>
+  <tr><td><b><label class = "black">Expected price</label><td>:</td></td></b><td><span class="black" span id="getval7"></span></td></tr>
+  
+  </table>  
+  <button type="button" class="btn-submit" id="getvalue" onclick="get();">Get Value</button>
+     
+  <br><br>
+  
+  <table align="center"> 
+  <tr>
+  <td><button type="button" id="printBlock" class="btn btn-selector" onclick="printBlock()">Print Block</button></td>
+  <td><button type="button" id="printTransaction" class="btn btn-selector" onclick="printTransaction()">Print Transaction</button></td></tr>
+  </table> 
+ 
+  <br>
+  <h4> Block Number : <span class="blockclass" span id="blocknum"> </span></h4>
+  <br>
+<button type="button" class="btn-submit1" id="Approve-btn" align ="center" font="20px">Approve Details</button>
+  
+
+
+  <span id="status"></span>
+
+ </div>
+	
+
+<div class="form" id="approve-form">
+     <h2 class="form-title">Assign lot</h2>
+		<input type="text" class="input-std" id="lotno" placeholder="Lot Number">
+		<input type="text" class="input-std" id="grade" placeholder="Grade">
+		<input type="text" class="input-std" id="mrp" placeholder="MRP">
+		<input type="text" class="input-std" id="testdate" placeholder="Test Date">
+		<input type="text" class="input-std" id="expdate" placeholder="Expiry Date">
+		
+		<button type="button" class="btn-submit" id="setvalue" onclick="setQ();submitOrder()">Submit</button>
+			
+		<span id="status"></span>	
+    <!-- <button type="button" class="btn-submit" onclick="submitOrder()">Add Details</button> -->
+
+  </div>
+  <!-- <input type="text" class="input-std" id="farmerid" placeholder="farmerid">
+		<input type="text" class="input-std" id="lot" placeholder="lot">
+    
+   -->
+  
+  
+
+  
+   <link href="./app.css" rel='stylesheet' type='text/css'>
+  <script src="./app.js"></script>
+ <!-- The core Firebase JS SDK is always required and must be listed first -->
+<!-- <script src="/__/firebase/8.6.2/firebase-app.js"></script> -->
+
+<!--TODO: Add SDKs for Firebase products that you want to use -->
+     <!-- https://firebase.google.com/docs/web/setup#available-libraries --> 
+<!-- <script src="/__/firebase/8.6.2/firebase-analytics.js"></script> -->
+
+<!-- Initialize Firebase -->
+<!-- <script src="/__/firebase/init.js"></script>  -->
+ <!-- <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script> -->
+ <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> -->
+ <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script> -->
+<script>
+ document.getElementById('back').addEventListener('click', function(e) {
+          console.log('back');
+          // direct to main login/resgistration page
+          window.location.href ='loggedIn.html';
+      }).catch(err => {
+          console.log(err);
+      
+  });
+  </script>
+  <script>
+  //Store information about your firebase so we can connect
+		
+		//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		//IMPORTANT: REPLACE THESE WITH YOUR VALUES (these ones won't work)
+		//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAPYa5Xs8Cg8lit3X_vpILLpIJrbd16_bk",
+      authDomain: "sms-api-7ccf9.firebaseapp.com",
+      databaseURL: "https://sms-api-7ccf9-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "sms-api-7ccf9",
+      storageBucket: "sms-api-7ccf9.appspot.com",
+      messagingSenderId: "118746606408",
+      appId: "1:118746606408:web:054dbabfdd0343d4eda17d",
+      measurementId: "G-CYPHQ7SM1Q"
+    };
+     
+        
+        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    
+        
+        //initialize your firebase
+        firebase.initializeApp(firebaseConfig);
+        var database = firebase.database();
+        
+        //create a variable to hold our orders list from firebase
+        var firebaseOrdersCollection = database.ref().child('data/');
+    
+        //this function is called when the submit button is clicked
+        function submitOrder() {
+         
+       
+        
+     
+    
+          //Grab order data from the form
+          var data = {
+            
+            farmerid: $('#fid1').val(), //another way you could write is $('#myForm [name="fullname"]').
+            lotno: $('#lotno').val(), //another way you could write is $('#myForm [name="fullname"]').
+          };
+          console.log(data);
+          //'push' (aka add) your order to the existing list
+          firebaseOrdersCollection.push(data); //'orders' is the name of the 'collection' (aka database table)
+          
+        };
+        
+       //check your console to see it!
+     </script>
+</body>
+</html>
